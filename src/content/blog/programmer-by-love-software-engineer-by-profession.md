@@ -1,6 +1,6 @@
 ---
 title: "Programmer by love, Software Engineer by profession"
-description: "A brief journey from VB6 curiosity to C++ mastery, highlighting a timeless love for programming—even as the industry evolves and tools change, the joy of coding remains at the heart of it all."
+description: "From tinkering in VB6 to learning C++, this is a quick snapshot of a timeless passion for coding as the industry evolves and tools change, the joy of creating software remains at the heart of it all."
 pubDate: "Apr 10 2023"
 ---
 

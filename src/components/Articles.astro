@@ -1,10 +1,13 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content";
 import FormattedDate from "./FormattedDate.astro";
+import { getReadingTime } from "../utils/getReadingTime";
 
-const posts = ((await getCollection("blog")) as Array<CollectionEntry<"blog"> & { digest: string }>).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+const posts = (
+  (await getCollection("blog")) as Array<
+    CollectionEntry<"blog"> & { digest: string }
+  >
+).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <section>
@@ -14,22 +17,28 @@ const posts = ((await getCollection("blog")) as Array<CollectionEntry<"blog"> & 
     {posts.length === 0 && <p>Something looks off. No articles to display.</p>}
 
     {
-      posts.map((post) => (
-          <a href={`/blog/${post.id}/`} class="post-anchor">
-            <div class="article">
-              <h4 class="title">{post.data.title}</h4>
+      posts.map((post) => {
+        const readingTime = getReadingTime(post.body ?? "");
 
-              <span>
-                <FormattedDate date={post.data.pubDate} /> - 
-                {post.digest.slice(0, 7)}
-              </span>
+        return (
+          <>
+            <a href={`/blog/${post.id}/`} class="post-anchor">
+              <div class="article">
+                <h4 class="title">{post.data.title}</h4>
 
-              <div>{post.data.description}</div>
-            </div>
-          </a>
+                <span>
+                  <FormattedDate date={post.data.pubDate} /> -
+                  {post.digest.slice(0, 7)} - {readingTime}
+                </span>
 
-          <span class="divisor" />
-      ))
+                <div>{post.data.description}</div>
+              </div>
+            </a>
+
+            <span class="divisor" />
+          </>
+        );
+      })
     }
   </div>
 </section>
@@ -73,7 +82,7 @@ const posts = ((await getCollection("blog")) as Array<CollectionEntry<"blog"> & 
 
   .divisor {
     margin-top: 10px;
-    margin-bottom:9px;
+    margin-bottom: 9px;
     border-bottom: 0.5px solid var(--colorBorder);
     display: block;
   }

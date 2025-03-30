@@ -5,10 +5,13 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import "../styles/blogpost.css";
+import { getReadingTime } from "../utils/getReadingTime";
 
 type Props = CollectionEntry<"blog">;
 
-const { digest, data } = Astro.props as typeof Astro.props & { digest: string };
+const { digest, data, body } = Astro.props as typeof Astro.props & {
+  digest: string;
+};
 const { title, description, pubDate, updatedDate } = data;
 ---
 
@@ -36,6 +39,8 @@ const { title, description, pubDate, updatedDate } = data;
             }
 
             {digest && <span>- {digest.slice(0, 7)}</span>}
+
+            {body && <span>- {getReadingTime(body)}</span>}
           </div>
         </div>
 
