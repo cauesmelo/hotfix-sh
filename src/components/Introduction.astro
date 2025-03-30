@@ -1,0 +1,41 @@
+<section>
+  <h3>About</h3>
+
+  <img src="/profile.png" />
+
+  <p>
+    I'm Cauê, a passionate programmer living in the most beautiful state of
+    Brazil. This is my little corner of the world wide web where I'll share some
+    of my thoughts, code endeavors, and anything else really.
+  </p>
+
+  <a href="/about">read more</a>
+</section>
+
+<style>
+  section {
+    max-width: 300px;
+  }
+
+  section img {
+    margin: 0 auto;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    clip-path: circle(50% at 50% 50%);
+  }
+
+  p {
+    margin: 1rem 0;
+  }
+
+  @media (max-width: 1024px) {
+    section {
+      max-width: 100%;
+    }
+
+    section img {
+      display: none;
+    }
+  }
+</style>

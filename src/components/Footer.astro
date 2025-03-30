@@ -1,0 +1,22 @@
+---
+const today = new Date();
+---
+
+<footer>
+  <span>
+    &copy; {today.getFullYear()} Cauê Melo. All rights reserved.
+  </span>
+
+  <span><a href="/rss.xml">RSS</a> </span>
+</footer>
+
+<style>
+  footer {
+    padding: 1rem 2rem;
+    background: var(--colorSurfaceDefault);
+    display: flex;
+    justify-content: space-between;
+    color: var(--colorTextSubtle);
+    font-size: 0.9rem;
+  }
+</style>

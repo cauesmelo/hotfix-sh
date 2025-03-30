@@ -1,0 +1,83 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import FormattedDate from "./FormattedDate.astro";
+
+const posts = ((await getCollection("blog")) as Array<CollectionEntry<"blog"> & { digest: string }>).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<section>
+  <h3>Articles</h3>
+
+  <div class="articles-container">
+    {posts.length === 0 && <p>Something looks off. No articles to display.</p>}
+
+    {
+      posts.map((post) => (
+          <a href={`/blog/${post.id}/`} class="post-anchor">
+            <div class="article">
+              <h4 class="title">{post.data.title}</h4>
+
+              <span>
+                <FormattedDate date={post.data.pubDate} /> - 
+                {post.digest.slice(0, 7)}
+              </span>
+
+              <div>{post.data.description}</div>
+            </div>
+          </a>
+
+          <span class="divisor" />
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .post-anchor {
+    background-color: transparent;
+    text-decoration: none;
+    color: var(--colorTextDefault);
+  }
+
+  .article {
+    padding: 0.8rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .article:hover {
+    transform: scale(1.02);
+  }
+
+  .article h4 {
+    flex: 1;
+    font-size: 1.4rem;
+  }
+
+  .article span {
+    font-size: 0.8rem;
+    color: var(--colorFontSubtle);
+    font-weight: normal;
+    font-family: var(--fontBrand);
+  }
+
+  .article div {
+    margin-top: 0.2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .divisor {
+    margin-top: 10px;
+    margin-bottom:9px;
+    border-bottom: 0.5px solid var(--colorBorder);
+    display: block;
+  }
+
+  .divisor:last-of-type {
+    display: none;
+  }
+</style>

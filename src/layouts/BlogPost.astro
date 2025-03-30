@@ -1,0 +1,91 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+import "../styles/blogpost.css";
+
+type Props = CollectionEntry<"blog">;
+
+const { digest, data } = Astro.props as typeof Astro.props & { digest: string };
+const { title, description, pubDate, updatedDate } = data;
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+
+  <body>
+    <Header />
+
+    <main>
+      <article>
+        <div class="title">
+          <h2>{title}</h2>
+
+          <div>
+            <FormattedDate date={pubDate} />
+            {
+              updatedDate && (
+                <span>
+                  - Last updated on <FormattedDate date={updatedDate} />
+                </span>
+              )
+            }
+
+            {digest && <span>- {digest.slice(0, 7)}</span>}
+          </div>
+        </div>
+
+        <slot />
+      </article>
+    </main>
+
+    <Footer />
+  </body>
+</html>
+
+<style>
+  main {
+    max-width: 850px;
+  }
+
+  article {
+    width: 100%;
+    padding: 1em;
+  }
+
+  .title {
+    margin-bottom: 1em;
+    padding: 1em 0;
+    line-height: 1;
+  }
+
+  .title div {
+    color: var(--colorTextSubtle);
+    font-family: var(--fontBrand);
+  }
+
+  .title h2 {
+    margin-bottom: 0.5rem;
+    margin-left: 4px;
+    width: fit-content;
+    position: relative;
+    z-index: 1;
+    text-shadow: -1px -1px 0 var(--colorSurfaceDefault);
+  }
+
+  .title h2::before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 50%;
+    width: 90%;
+    top: 5px;
+    left: -5px;
+    z-index: -1;
+    background-color: var(--colorBrand);
+  }
+</style>

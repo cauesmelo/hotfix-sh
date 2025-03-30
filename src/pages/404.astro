@@ -1,0 +1,48 @@
+---
+import "../styles/global.css";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 - Lost in Space</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>(✖﹏✖)</h1>
+
+      <p>
+        Whoops, you're lost in space! <br />This page doesn't exist.
+      </p>
+      <a href="/">Take me home</a>
+    </div>
+  </body>
+</html>
+
+<style>
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+
+  .container {
+    background: var(--colorSurfaceDefault);
+    border-radius: var(--borderRadius);
+    box-shadow: var(--boxShadow);
+    padding: 2rem;
+    max-width: 500px;
+    text-align: center;
+  }
+
+  h1 {
+    color: var(--colorBrand);
+  }
+
+  p {
+    margin-bottom: 1.5rem;
+  }
+</style>

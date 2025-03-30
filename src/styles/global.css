@@ -1,0 +1,100 @@
+:root {
+	--colorBrand: #00ff00;
+  --colorBrandTransparent: #00ff0009;
+  --colorBrandDark: #356859;
+  --colorTextDefault: #222939;
+  --colorTextSubtle: #85898d;
+  --colorSurfaceDefault: #ffffff;
+  --colorSurfaceSubtle: #e5e9f0;
+  --colorSurfaceContrast: #222939;
+  --colorBorder: #d1d9e0;
+  --fontDefault: "Source Sans 3", sans-serif;
+  --fontBrand: "Inconsolata", sans-serif;
+  --boxShadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  --borderRadius: 6px;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--fontDefault);
+  font-optical-sizing: auto;
+  color: var(--colorTextDefault);
+  font-size: 1.25rem;
+  background-color: var(--colorSurfaceSubtle);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body > * {
+  width: 100%;
+}
+
+main {
+  max-width: 68.75rem;
+  padding: 1em 2em;
+  background-color: var(--colorSurfaceDefault);
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 3rem;
+  height: minmax(100%, 200px);
+  flex: 1;
+}
+
+a {
+  text-decoration: none;
+  color: var(--colorBrand);
+  position: relative;
+  z-index: 1;
+  color: var(--colorTextDefault);
+	color: var(--colorBrandDark);
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+h3 {
+  margin-left: 4px;
+  width: fit-content;
+  position: relative;
+  z-index: 1;
+  text-shadow: -1px -1px 0 var(--colorSurfaceDefault);
+  font-size: 1.6rem;
+}
+
+h3::before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 50%;
+  width: 90%;
+  top: 5px;
+  left: -5px;
+  z-index: -1;
+  background-color: var(--colorBrand);
+}
+
+::selection, mark {
+  background: var(--colorBrand);
+}
+
+@media (max-width: 720px) {
+  body {
+    font-size: 1.1rem;
+  }
+
+  main {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  main {
+    flex-direction: column;
+  }
+}
