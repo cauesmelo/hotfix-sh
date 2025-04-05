@@ -1,12 +1,12 @@
 ---
-import "../styles/global.css";
+import BaseHead from "../components/BaseHead.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
 
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>404 - Lost in Space</title>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
 
   <body>
