@@ -1,7 +1,25 @@
+<script is:inline>
+  function flipImage(e) {
+    const img = e.currentTarget;
+    img.style.transition = "transform 0.25s";
+    img.style.transform = "rotateY(90deg)";
+
+    setTimeout(() => {
+      if (img.getAttribute("src") === "/profile-caue.jpeg") {
+        img.src = "/profile.png";
+      } else {
+        img.src = "/profile-caue.jpeg";
+      }
+
+      img.style.transform = "rotateY(0deg)";
+    }, 250);
+  }
+</script>
+
 <section>
   <h3>About</h3>
 
-  <img src="/profile.png" />
+  <img id="profileImage" src="/profile.png" onclick="flipImage(event)" />
 
   <p>
     I'm Cauê, a passionate programmer living in the most beautiful state of
@@ -23,6 +41,9 @@
     height: 150px;
     object-fit: cover;
     clip-path: circle(50% at 50% 50%);
+    user-drag: none;
+    -webkit-user-drag: none;
+    -moz-user-select: none;
   }
 
   p {

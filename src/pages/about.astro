@@ -2,9 +2,27 @@
 import Page from "../layouts/Page.astro";
 ---
 
+<script is:inline>
+  function flipImage(e) {
+    const img = e.currentTarget;
+    img.style.transition = "transform 0.25s";
+    img.style.transform = "rotateY(90deg)";
+
+    setTimeout(() => {
+      if (img.getAttribute("src") === "/profile-caue.jpeg") {
+        img.src = "/profile.png";
+      } else {
+        img.src = "/profile-caue.jpeg";
+      }
+
+      img.style.transform = "rotateY(0deg)";
+    }, 250);
+  }
+</script>
+
 <Page>
   <section>
-    <img src="/profile-caue.jpeg" />
+    <img src="/profile-caue.jpeg" onclick="flipImage(event)" />
     <h3>About me</h3>
 
     <p>
