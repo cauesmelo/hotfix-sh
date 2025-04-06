@@ -1,4 +1,10 @@
 <script is:inline>
+  // Preload profile images
+  const profileImg = new Image();
+  const profileCaueImg = new Image();
+  profileImg.src = "/profile.png";
+  profileCaueImg.src = "/profile-caue.jpeg";
+
   function flipImage(e) {
     const img = e.currentTarget;
     img.style.transition = "transform 0.25s";
