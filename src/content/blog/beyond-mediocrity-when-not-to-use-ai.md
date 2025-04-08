@@ -1,5 +1,5 @@
 ---
-title: "Beyond mediocrity: When to (not) use GenAI"
+title: "Beyond mediocrity: When (not) to use GenAI"
 description: "I believe that while GenAIs are incredibly useful for many things but professionals should aim for excellence, a noun that GenAI simply can't replicate (yet)."
 pubDate: "Apr 8 2025"
 ---
