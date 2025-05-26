@@ -33,15 +33,40 @@ pre > code {
 	all: unset;
 }
 
+code {
+	font-size: 1rem;
+	background-color: var(--colorSurfaceSubtle);
+	padding: 0.1em 0.1em;
+	border-radius: var(--borderRadius);
+}
+
 blockquote {
-	border-left: 4px solid var(--accent);
-	padding: 0 0 0 20px;
-	margin: 0px;
-	font-size: 1.333em;
+	border-left: 4px solid var(--colorBrand);
+	background-color: var(--colorBrandTransparent);
+	padding: 0.5rem 1rem;
 }
 
 hr {
 	border: none;
 	border-top: 1px solid var(--colorBorder);
 	margin: 2px 0 1px 0;
+}
+
+blockquote p {
+	font-size: 1.25rem;
+	font-style: italic;
+	margin-bottom: 0;
+	font-weight: 600;
+}
+
+blockquote p:before {
+	content: "“";
+	font-size: 1.5rem;
+	margin-right: 0.25rem;
+}
+
+blockquote p:after {
+	content: "”";
+	font-size: 1.5rem;
+	margin-left: 0.25rem;
 }

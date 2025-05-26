@@ -58,6 +58,10 @@ a {
 	text-decoration: underline;
 }
 
+h2 {
+  font-size: 2.4rem;
+}
+
 h3 {
   margin-left: 4px;
   width: fit-content;
@@ -78,6 +82,32 @@ h3::before {
   z-index: -1;
   background-color: var(--colorBrand);
 }
+
+h4 {
+  margin-left: 4px;
+  width: fit-content;
+  position: relative;
+  z-index: 1;
+  text-shadow: -1px -1px 0 var(--colorSurfaceDefault);
+  font-size: 1.4rem;
+}
+
+h4::before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 50%;
+  width: 90%;
+  top: 5px;
+  left: -5px;
+  z-index: -1;
+  background-color: var(--colorBrand);
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
 
 ::selection, mark {
   background: var(--colorBrand);
