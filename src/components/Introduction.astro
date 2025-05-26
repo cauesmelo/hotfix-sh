@@ -3,7 +3,7 @@
   const profileImg = new Image();
   const profileCaueImg = new Image();
   profileImg.src = "/profile.png";
-  profileCaueImg.src = "/profile-caue.jpeg";
+  profileCaueImg.src = "/profile-caue.png";
 
   function flipImage(e) {
     const img = e.currentTarget;
@@ -11,10 +11,10 @@
     img.style.transform = "rotateY(90deg)";
 
     setTimeout(() => {
-      if (img.getAttribute("src") === "/profile-caue.jpeg") {
+      if (img.getAttribute("src") === "/profile-caue.png") {
         img.src = "/profile.png";
       } else {
-        img.src = "/profile-caue.jpeg";
+        img.src = "/profile-caue.png";
       }
 
       img.style.transform = "rotateY(0deg)";
@@ -25,7 +25,7 @@
 <section>
   <h3>About</h3>
 
-  <img id="profileImage" src="/profile.png" onclick="flipImage(event)" />
+  <img id="profileImage" src="/profile-caue.png" onclick="flipImage(event)" />
 
   <p>
     I'm Cauê, a passionate programmer living in the most beautiful state of

@@ -9,20 +9,32 @@ import Page from "../layouts/Page.astro";
     img.style.transform = "rotateY(90deg)";
 
     setTimeout(() => {
-      if (img.getAttribute("src") === "/profile-caue.jpeg") {
+      if (img.getAttribute("src") === "/profile-caue.png") {
         img.src = "/profile.png";
       } else {
-        img.src = "/profile-caue.jpeg";
+        img.src = "/profile-caue.png";
       }
 
       img.style.transform = "rotateY(0deg)";
     }, 250);
   }
+
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      const img = document.querySelector("section img");
+      if (img) {
+        flipImage({ currentTarget: img });
+        setTimeout(() => {
+          flipImage({ currentTarget: img });
+        }, 700);
+      }
+    }, 500);
+  });
 </script>
 
 <Page>
   <section>
-    <img src="/profile-caue.jpeg" onclick="flipImage(event)" />
+    <img src="/profile-caue.png" onclick="flipImage(event)" />
     <h3>About me</h3>
 
     <p>
